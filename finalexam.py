@@ -19,3 +19,27 @@ for i in scores:
         add 1
         percent average = counter / len(scores)
 """
+def strip_list():
+    file = open("Final.txt", "r")
+    scores = [line.rstrip()for line in file]
+    file.close()
+    return
+    #     scores = [[float(i) for i in scores.strip().split(',')] for scores in filename]
+strip_list()
+
+
+def main():
+    counter = 0
+    scores = strip_list()
+    print("Student Scores Are:", scores)
+    avg = sum(scores) / len(scores)
+    for i in scores:
+        if float(i) > avg:
+            counter += 1
+            percent_avg = counter/len(scores)
+    print("The class average is: ", avg)
+    print("The number of students is:", len(scores))
+    print("The percentage of the class above the average is:", percent_avg, "%")
+
+main()
+
